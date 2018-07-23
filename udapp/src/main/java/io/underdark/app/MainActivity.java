@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity
 {
 	private TextView peersTextView;
 	private TextView framesTextView;
+	private EditText text;
 
 	Node node;
 
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		text = (EditText) findViewById(R.id.text);
 		peersTextView = (TextView) findViewById(R.id.peersTextView);
 		framesTextView = (TextView) findViewById(R.id.framesTextView);
 
@@ -83,15 +86,15 @@ public class MainActivity extends AppCompatActivity
 			return;
 		}*/
 
-		node.broadcastFrame(new byte[1]);
+		node.broadcastFrame(text.getText().toString().getBytes());
 
-		for(int i = 0; i < 2000; ++i)
+		/*for(int i = 0; i < 2000; ++i)
 		{
 			byte[] frameData = new byte[1024];
 			new Random().nextBytes(frameData);
 
 			node.broadcastFrame(frameData);
-		}
+		}*/
 
 		/*for(int i = 0; i < 100; ++i)
 		{
