@@ -23,7 +23,8 @@
 		android:layout_height="300dp"
 		android:layout_below="@+id/peersTextView"
 		android:layout_centerHorizontal="true"
-		android:text="0 frames"
+		android:scrollbars="vertical"
+		android:text=""
 		android:textAppearance="?android:attr/textAppearanceLarge" />
 
 	<EditText
@@ -32,8 +33,8 @@
 		android:layout_height="50dp"
 		android:layout_alignParentBottom="true"
 		android:layout_centerHorizontal="true"
-		android:layout_marginBottom="137dp"
-		android:hint="@string/hint_message"/>
+		android:layout_marginBottom="90dp"
+		android:hint="@string/hint_message" />
 
 	<Button
 		android:id="@+id/sendFramesButton"

@@ -1,5 +1,6 @@
 package com.p2pprogram.app;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 		text = (EditText) findViewById(R.id.text);
 		peersTextView = (TextView) findViewById(R.id.peersTextView);
@@ -86,7 +88,9 @@ public class MainActivity extends AppCompatActivity
 			return;
 		}*/
 
-		node.broadcastFrame(text.getText().toString().getBytes());
+		String abc = text.getText().toString();
+
+		node.broadcastFrame(abc.getBytes());
 
 		/*for(int i = 0; i < 2000; ++i)
 		{
@@ -112,6 +116,11 @@ public class MainActivity extends AppCompatActivity
 
 	public void refreshFrames()
 	{
-		framesTextView.setText(node.getFramesCount() + " frames");
+		framesTextView.setText(framesTextView.getText() + node.getFramesCount() + "\n");
+	}
+
+	public void cleanFrames()
+	{
+		framesTextView.setText("Все ушли :(".getBytes().toString());
 	}
 } // MainActivity

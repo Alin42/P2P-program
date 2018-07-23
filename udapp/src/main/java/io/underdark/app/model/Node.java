@@ -25,7 +25,7 @@ public class Node implements TransportListener
 	private Transport transport;
 
 	private ArrayList<Link> links = new ArrayList<>();
-	private int framesCount = 0;
+	private String framesCount;
 
 	public Node(MainActivity activity)
 	{
@@ -88,7 +88,7 @@ public class Node implements TransportListener
 		return links;
 	}
 
-	public int getFramesCount()
+	public String getFramesCount()
 	{
 		return framesCount;
 	}
@@ -98,7 +98,7 @@ public class Node implements TransportListener
 		if(links.isEmpty())
 			return;
 
-		++framesCount;
+		framesCount = frameData.toString();
 		activity.refreshFrames();
 
 		for(Link link : links)
@@ -127,15 +127,15 @@ public class Node implements TransportListener
 
 		if(links.isEmpty())
 		{
-			framesCount = 0;
-			activity.refreshFrames();
+			framesCount = "";
+			activity.cleanFrames();
 		}
 	}
 
 	@Override
 	public void transportLinkDidReceiveFrame(Transport transport, Link link, byte[] frameData)
 	{
-		++framesCount;
+		framesCount = frameData.toString();
 		activity.refreshFrames();
 	}
 	//endregion
