@@ -1,4 +1,4 @@
-package io.underdark.app;
+package com.p2pprogram.app;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-import io.underdark.app.model.Node;
+import com.p2pprogram.app.model.Node;
 
 public class MainActivity extends AppCompatActivity
 {

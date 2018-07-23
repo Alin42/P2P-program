@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/p2pprogram.iml" filepath="$PROJECT_DIR$/p2pprogram.iml" />
       <module fileurl="file://$PROJECT_DIR$/udapp/udapp.iml" filepath="$PROJECT_DIR$/udapp/udapp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/udapp-demo.iml" filepath="$PROJECT_DIR$/udapp-demo.iml" />
     </modules>
   </component>
 </project>

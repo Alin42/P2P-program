@@ -1,4 +1,4 @@
-package io.underdark.app.model;
+package com.p2pprogram.app.model;
 
 import android.content.Context;
 
@@ -9,7 +9,7 @@ import java.util.EnumSet;
 import java.util.Random;
 
 import io.underdark.Underdark;
-import io.underdark.app.MainActivity;
+import com.p2pprogram.app.MainActivity;
 import io.underdark.transport.Link;
 import io.underdark.transport.Transport;
 import io.underdark.transport.TransportKind;
