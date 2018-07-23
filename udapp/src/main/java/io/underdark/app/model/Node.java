@@ -4,6 +4,7 @@ import android.content.Context;
 
 import org.slf4j.impl.StaticLoggerBinder;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.Random;
@@ -98,7 +99,11 @@ public class Node implements TransportListener
 		if(links.isEmpty())
 			return;
 
-		framesCount = frameData.toString();
+		try {
+			framesCount = new String(frameData, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		activity.refreshFrames();
 
 		for(Link link : links)
@@ -135,7 +140,11 @@ public class Node implements TransportListener
 	@Override
 	public void transportLinkDidReceiveFrame(Transport transport, Link link, byte[] frameData)
 	{
-		framesCount = frameData.toString();
+		try {
+			framesCount = new String(frameData, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		activity.refreshFrames();
 	}
 	//endregion

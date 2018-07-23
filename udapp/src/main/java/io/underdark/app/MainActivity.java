@@ -121,6 +121,6 @@ public class MainActivity extends AppCompatActivity
 
 	public void cleanFrames()
 	{
-		framesTextView.setText("Все ушли :(".getBytes().toString());
+		framesTextView.setText("Все ушли :(");
 	}
 } // MainActivity
