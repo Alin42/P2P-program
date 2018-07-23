@@ -12,29 +12,32 @@
 		android:id="@+id/peersTextView"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_alignParentStart="true"
+		android:layout_alignParentEnd="true"
 		android:layout_alignParentTop="true"
 		android:text="0 connected"
-		android:textAppearance="?android:attr/textAppearanceLarge" />
+		android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentRight="true" />
 
 	<TextView
 		android:id="@+id/framesTextView"
 		android:layout_width="match_parent"
-		android:layout_height="300dp"
-		android:layout_below="@+id/peersTextView"
+		android:layout_height="400dp"
+		android:layout_above="@+id/text"
 		android:layout_centerHorizontal="true"
 		android:scrollbars="vertical"
+        android:maxLines="20"
+		android:gravity="bottom"
 		android:text=""
 		android:textAppearance="?android:attr/textAppearanceLarge" />
 
 	<EditText
 		android:id="@+id/text"
-		android:layout_width="match_parent"
+		android:layout_width="240dp"
 		android:layout_height="50dp"
-		android:layout_alignParentBottom="true"
-		android:layout_centerHorizontal="true"
-		android:layout_marginBottom="90dp"
-		android:hint="@string/hint_message" />
+		android:layout_alignBottom="@+id/sendFramesButton"
+		android:layout_alignParentStart="true"
+		android:hint="@string/hint_message"
+		android:layout_alignParentLeft="true" />
 
 	<Button
 		android:id="@+id/sendFramesButton"

@@ -1,8 +1,12 @@
 package com.p2pprogram.app;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,6 +35,10 @@ public class MainActivity extends AppCompatActivity
 		text = (EditText) findViewById(R.id.text);
 		peersTextView = (TextView) findViewById(R.id.peersTextView);
 		framesTextView = (TextView) findViewById(R.id.framesTextView);
+
+		framesTextView.setMovementMethod(new ScrollingMovementMethod());
+
+		startService(new Intent(this, BackgroundService.class));
 
 		node = new Node(this);
 	}
@@ -116,7 +124,12 @@ public class MainActivity extends AppCompatActivity
 
 	public void refreshFrames()
 	{
-		framesTextView.setText(framesTextView.getText() + node.getFramesCount() + "\n");
+		long mills = 1000L;
+		Vibrator vibrator =(Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		if (vibrator.hasVibrator()){
+			vibrator.vibrate(mills);
+		}
+		framesTextView.append(node.getFramesCount() + "\n");
 	}
 
 	public void cleanFrames()
