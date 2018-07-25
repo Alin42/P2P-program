@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2018 Vladimir L. Shabanov <virlof@gmail.com>
+ *
+ * Licensed under the Underdark License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://underdark.io/LICENSE.txt
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.p2pprogram.app;
 
 import android.content.Context;
@@ -12,9 +28,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.util.Random;
-
 import com.p2pprogram.app.model.Node;
 
 public class MainActivity extends AppCompatActivity
@@ -84,7 +97,7 @@ public class MainActivity extends AppCompatActivity
 		return super.onOptionsItemSelected(item);
 	}
 
-	private static boolean started = false;
+	//private static boolean started = false;
 
 	public void sendFrames(View view)
 	{
@@ -99,14 +112,6 @@ public class MainActivity extends AppCompatActivity
 		String abc = text.getText().toString();
 
 		node.broadcastFrame(abc.getBytes());
-
-		/*for(int i = 0; i < 2000; ++i)
-		{
-			byte[] frameData = new byte[1024];
-			new Random().nextBytes(frameData);
-
-			node.broadcastFrame(frameData);
-		}*/
 
 		/*for(int i = 0; i < 100; ++i)
 		{
@@ -124,10 +129,10 @@ public class MainActivity extends AppCompatActivity
 
 	public void refreshFrames()
 	{
-		long mills = 1000L;
 		Vibrator vibrator =(Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 		if (vibrator.hasVibrator()){
-			vibrator.vibrate(mills);
+            long mills = 1000L;
+            vibrator.vibrate(mills);
 		}
 		framesTextView.append(node.getFramesCount() + "\n");
 	}
